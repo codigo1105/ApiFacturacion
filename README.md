@@ -1,2 +1,2 @@
 # GuiaActualizada
-Código para nueva guía de remisión
+Actualización para nueva guía de remisión
