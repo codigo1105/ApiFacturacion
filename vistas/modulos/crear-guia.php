@@ -111,7 +111,9 @@ use Controladores\ControladorGuiaRemision;
                     </div>
                     <!-- ENTRADA CLIENTE -->
                     <div class="row">
-                      <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;">Cliente:</legend>
+                      <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
+                          <h3>1</h3>
+                        </label> Cliente</legend>
 
                       <div class="col-md-3">
                         <div class="form-group">
@@ -171,7 +173,9 @@ use Controladores\ControladorGuiaRemision;
 
                     <!-- ENTRADA CLIENTE -->
                     <div class="row">
-                      <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;">Datos de Traslado:</legend>
+                      <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
+                          <h3>2</h3>
+                        </label> Datos de Traslado:</legend>
 
                       <div class="col-md-4">
                         <div class="form-group">
@@ -276,7 +280,9 @@ use Controladores\ControladorGuiaRemision;
 
 
                     <div class="row">
-                      <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;">Datos del transporte:</legend>
+                      <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
+                          <h3>3</h3>
+                        </label> Datos del transporte:</legend>
 
                       <div class="col-md-3">
                         <div class="form-group">
@@ -315,16 +321,16 @@ use Controladores\ControladorGuiaRemision;
                         <div class="form-group">
                           <div class="input-group-">
                             <label for="" class="nombreRazon">Nombre Conductor <span style="color:red; border-style: none !important;">*</span> </label>
-                            <input type="text" class="form-control" id="nombreRazon" name="nombreRazon" placeholder="Nombre o Razón Social">                            
-                           
+                            <input type="text" class="form-control" id="nombreRazon" name="nombreRazon" placeholder="Nombre o Razón Social">
+
                           </div>
                           <div class="input-group-c-apellidos">
-                             <label for="" class="apellidosRazon">Apellidos Conductor <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="" class="apellidosRazon">Apellidos Conductor <span style="color:red; border-style: none !important;">*</span> </label>
                             <input type="text" class="form-control" id="apellidosRazon" name="apellidosRazon" placeholder="Apellidos">
                           </div>
-                          </div>
-                          
                         </div>
+
+                      </div>
 
                       <div class="col-md-2 placa-v">
                         <div class="form-group">
@@ -390,7 +396,9 @@ use Controladores\ControladorGuiaRemision;
 
                     <div class="row">
                       <div class="col-md-6">
-                        <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;">Punto de Partida:</legend>
+                        <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
+                            <h3>4</h3>
+                          </label> Punto de Partida:</legend>
                         <div class="row">
                           <div class="col-md-12">
                             <div class="form-group">
@@ -415,7 +423,9 @@ use Controladores\ControladorGuiaRemision;
                       </div>
 
                       <div class="col-md-6">
-                        <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;">Punto de LLegada:</legend>
+                        <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
+                            <h3>5</h3>
+                          </label> Punto de LLegada:</legend>
                         <div class="row">
                           <div class="col-md-12">
                             <div class="form-group">
@@ -441,7 +451,9 @@ use Controladores\ControladorGuiaRemision;
                       </div>
                     </div>
                     <div class="row">
-                      <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;">Documento de referencia:</legend>
+                      <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
+                          <h3>7</h3>
+                        </label> Documento de referencia:</legend>
 
                       <div class="col-md-4">
                         <div class="form-group">
