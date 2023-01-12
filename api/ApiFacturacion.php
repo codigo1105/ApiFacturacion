@@ -244,7 +244,7 @@ class ApiFacturacion
 
 			$datos_token = array(
 				'grant_type' => 'password',
-				'scope' => 'https://api-cpe.sunat.gob.pe/',
+				'scope' => 'https://api-cpe.sunat.gob.pe',
 				'client_id' => "test-85e5b0ae-255c-4891-a595-0b98c65c9854",
 				'client_secret' => "test-Hty/M6QshYvPgItX2P0+Kw==",
 				'username'    => $emisor['ruc'] . $usuario_sol,
@@ -291,7 +291,7 @@ class ApiFacturacion
 		$response = curl_exec($curl);
 
 		curl_close($curl);
-
+		// var_dump($response);
 		return json_decode($response);
 		// echo $response;
 	}
@@ -427,8 +427,8 @@ class ApiFacturacion
 			CURLOPT_CUSTOMREQUEST => 'GET',
 			// CURLOPT_POSTFIELDS => $data,
 			CURLOPT_HTTPHEADER => array(
-				'Content-Type: application/json',
-				'Authorization: Bearer ' . $token
+				'Authorization: Bearer ' . $token,
+				'Content-Type: application/json'
 			),
 
 		));
@@ -441,12 +441,12 @@ class ApiFacturacion
 		} else {
 			$response = curl_exec($ch);
 		}
-		$response;
+
 		// ejecucion del llamado y respuesta del WS SUNAT.
 
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE); // objten el codigo de respuesta de la peticion al WS SUNAT
 
-		var_dump($response);
+		// var_dump($response);
 
 		$cdrDecode = json_decode($response);
 
