@@ -236,25 +236,38 @@ class ApiFacturacion
 
 	public static function ObtenerToken($emisor)
 	{
+		// MODO PRUEBAS===========================
 		if ($emisor['modo'] == 'n') {
 			$usuario_sol = $emisor['usuario_prueba'];
 			$clave_sol = $emisor['clave_prueba'];
 			$wsS = "https://gre-test.nubefact.com/v1/clientessol/test-85e5b0ae-255c-4891-a595-0b98c65c9854/oauth2/token";
+
+			$datos_token = array(
+				'grant_type' => 'password',
+				'scope' => 'https://api-cpe.sunat.gob.pe/',
+				'client_id' => "test-85e5b0ae-255c-4891-a595-0b98c65c9854",
+				'client_secret' => "test-Hty/M6QshYvPgItX2P0+Kw==",
+				'username'    => $emisor['ruc'] . $usuario_sol,
+				'password'    => $clave_sol
+			);
 		}
+		// MODO PRODUCCIÓN===========================
 		if ($emisor['modo'] == 's') {
 			$usuario_sol = $emisor['usuario_sol'];
 			$clave_sol = $emisor['clave_sol'];
-			$wsS = "https://api-seguridad.sunat.gob.pe/v1/clientessol/{client_id}/oauth2/token/";
+			$wsS = 'https://api-seguridad.sunat.gob.pe/v1/clientessol/{client_id}/oauth2/token/';
+
+			$datos_token = array(
+				'grant_type' => 'password',
+				'scope' => 'https://api-cpe.sunat.gob.pe/',
+				'client_id' => "TU CLIENTE ID",
+				'client_secret' => "CLIENTE SECRETO",
+				'username'    => $emisor['ruc'] . $usuario_sol,
+				'password'    => $clave_sol
+			);
 		}
 
-		$datos_token = array(
-			'grant_type' => 'password',
-			'scope' => 'https://api-cpe.sunat.gob.pe',
-			'client_id' => "test-85e5b0ae-255c-4891-a595-0b98c65c9854",
-			'client_secret' => "test-Hty/M6QshYvPgItX2P0+Kw==",
-			'username'    => $emisor['ruc'] . $usuario_sol,
-			'password'    => $clave_sol
-		);
+
 
 		$payload = http_build_query($datos_token);
 		$curl = curl_init();
@@ -269,8 +282,8 @@ class ApiFacturacion
 			CURLOPT_CUSTOMREQUEST => 'POST',
 			CURLOPT_POSTFIELDS => $payload,
 			CURLOPT_HTTPHEADER => array(
-				'Content-Type: application/x-www-form-urlencoded',
-				'Cookie: TS019e7fc2=019edc9eb83c7d5d008dcf6e322b08eea3adf12534ab2928399f1259f8652cd949aba01cbb31384f7a5e74c847891dd28b7726563a'
+				'Content-Type: application/x-www-form-urlencoded'
+
 			),
 
 		));
@@ -284,17 +297,14 @@ class ApiFacturacion
 	}
 	public function EnviarGuiaRemision($emisor, $nombre, $ruta_archivo_xml, $ruta_archivo_cdr, $rutacertificado = null)
 	{
-
+		// MODO PRUEBAS===========================
 		if ($emisor['modo'] == 'n') {
-			$usuario_sol = $emisor['usuario_prueba'];
-			$clave_sol = $emisor['clave_prueba'];
 			$certificado = $emisor['certificado_prueba'];
 			$wsS = self::SUNAT_SEND_API_ENDPOINT_TEST;
 			$pass_certificado = 'ceti';
 		}
+		// MODO PRODUCCIÓN===========================
 		if ($emisor['modo'] == 's') {
-			$usuario_sol = $emisor['usuario_sol'];
-			$clave_sol = $emisor['clave_sol'];
 			$certificado = $emisor['certificado'];
 			$wsS = self::SUNAT_SEND_API_ENDPOINT;
 			$pass_certificado = $emisor['clave_certificado'];
@@ -358,17 +368,18 @@ class ApiFacturacion
 		$ch = curl_init();
 
 		curl_setopt_array($ch, array(
-			CURLOPT_SSL_VERIFYPEER => 1,
 			CURLOPT_URL => $wsS . $nombre,
 			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_HTTPAUTH => CURLAUTH_ANY,
-			CURLOPT_TIMEOUT => 30,
-			CURLOPT_POST => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => 'POST',
 			CURLOPT_POSTFIELDS => $dataS,
 			CURLOPT_HTTPHEADER => array(
-				'Content-Type: application/json',
-				'Authorization: Bearer ' . $token
+				"Authorization: Bearer " . $token,
+				'Content-Type: application/json'
 			),
 
 		));
@@ -381,7 +392,7 @@ class ApiFacturacion
 		} else {
 			$response = curl_exec($ch);
 		}
-		// var_dump($response);
+
 		// ejecucion del llamado y respuesta del WS SUNAT.
 
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE); // objten el codigo de respuesta de la peticion al WS SUNAT
@@ -390,10 +401,7 @@ class ApiFacturacion
 
 		$obt_ticket = json_decode($response);
 		$this->ticketS = $obt_ticket->numTicket;
-
-
-		// var_dump($obtenerCdr);
-
+		// var_dump($response);
 	}
 	public function ConsultarTicketGuiaRemision($emisor, $ticket, $token, $nombre_archivo, $nombre, $ruta_archivo_cdr)
 	{
@@ -438,7 +446,7 @@ class ApiFacturacion
 
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE); // objten el codigo de respuesta de la peticion al WS SUNAT
 
-
+		var_dump($response);
 
 		$cdrDecode = json_decode($response);
 

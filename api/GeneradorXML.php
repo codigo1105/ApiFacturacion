@@ -1117,7 +1117,7 @@ class GeneradorXML
       $doc->preserveWhiteSpace = TRUE;
       $doc->encoding = 'utf-8';
 
-      $xml = '<?xml version="1.0" encoding="UTF-8"?>
+      $xml = '
       <DespatchAdvice xmlns="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2">
          <ext:UBLExtensions>
 		<ext:UBLExtension>
@@ -1237,7 +1237,7 @@ class GeneradorXML
             <cbc:FamilyName>' . $datosGuia['transportista']['apellidosRazon'] . '</cbc:FamilyName>
             <cbc:JobTitle>Principal</cbc:JobTitle>
             <cac:IdentityDocumentReference>
-            <cbc:ID>Q' . $datosGuia['transportista']['numDocChofer'] . '</cbc:ID>
+            <cbc:ID>X' . $datosGuia['transportista']['numDocChofer'] . '</cbc:ID>
             </cac:IdentityDocumentReference>
 			</cac:DriverPerson>';
       endif;
