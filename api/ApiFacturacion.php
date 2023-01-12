@@ -255,13 +255,13 @@ class ApiFacturacion
 		if ($emisor['modo'] == 's') {
 			$usuario_sol = $emisor['usuario_sol'];
 			$clave_sol = $emisor['clave_sol'];
-			$wsS = 'https://api-seguridad.sunat.gob.pe/v1/clientessol/{client_id}/oauth2/token/';
+			$wsS = 'https://api-seguridad.sunat.gob.pe/v1/clientessol/' . $emisor['client_id'] . '/oauth2/token/';
 
 			$datos_token = array(
 				'grant_type' => 'password',
 				'scope' => 'https://api-cpe.sunat.gob.pe/',
-				'client_id' => "TU CLIENTE ID",
-				'client_secret' => "CLIENTE SECRETO",
+				'client_id' => $emisor['client_id'],
+				'client_secret' => $emisor['secret_id'],
 				'username'    => $emisor['ruc'] . $usuario_sol,
 				'password'    => $clave_sol
 			);
