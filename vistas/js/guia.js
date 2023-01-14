@@ -96,9 +96,7 @@ $(document).on("change", "#modalidadTraslado", function () {
     $(".input-group-c-apellidos").hide();
     $(".nombre-razon").removeClass("col-md-4");
     $(".nombre-razon").addClass("col-md-6");
-
   } else {
-
     document.getElementById("tipoDocTransporte").value = "1";
     $("#formGuia .docTransporte").html(
       `N° DNI Conductor <span style="color:red; border-style: none !important;">*</span>`
