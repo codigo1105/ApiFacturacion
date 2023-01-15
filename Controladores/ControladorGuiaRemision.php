@@ -229,7 +229,7 @@ class ControladorGuiaRemision
         $ruta = "../api/xml/";
         if (
             !empty($datosForm['idCliente']) && !empty($datosForm['docIdentidad']) && !empty($datosForm['razon_social'])
-            && !empty($datosForm['fechaInicialTraslado']) && !empty($datosForm['pesoBruto']) && !empty($datosForm['numeroBultos']) && !empty($datosForm['docTransporte']) && !empty($datosForm['nombreRazon'])  && !empty($datosForm['direccionPartida']) && !empty($datosForm['ubigeoPartida']) && !empty($datosForm['direccionLlegada']) && !empty($datosForm['ubigeoLlegada'])
+            && !empty($datosForm['fechaInicialTraslado']) && !empty($datosForm['pesoBruto']) && !empty($datosForm['numeroBultos']) && !empty($datosForm['docTransporte']) && !empty($datosForm['nombreRazon'])  && !empty($datosForm['direccionPartida']) && !empty($datosForm['ubigeoPartida']) && !empty($datosForm['direccionLlegada']) && !empty($datosForm['ubigeoLlegada']) && !empty($datosForm['numBrevete'])
         ) {
 
 
