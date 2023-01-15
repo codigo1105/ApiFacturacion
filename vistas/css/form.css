@@ -790,6 +790,7 @@ legend {
 }
 #formGuia #direccionPartida,
 #formGuia #direccionLlegada,
+#formGuia #numBrevete,
 #formGuia #placa {
   text-transform: uppercase;
 }

@@ -364,6 +364,17 @@ $("#formGuia").on("keyup", "#placa", function () {
     $("#placa").val(placa);
   }
 });
+
+$("#formGuia").on("keyup", "#numBrevete", function () {
+  var numBrevete = $(this).val();
+
+  //this.value = (this.value + '').replace(/[^0-9]/g, '');
+  if (!$.isNumeric(numBrevete)) {
+    //dni = dni.substr(0,(dni.length -1));
+    numBrevete = numBrevete.replace(/[^a-zA-Z0-9]/g, "");
+    $("#numBrevete").val(numBrevete);
+  }
+});
 $("#formGuia").on("keyup", "#direccionPartida", function () {
   var placa = $(this).val();
 

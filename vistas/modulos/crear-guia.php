@@ -338,7 +338,10 @@ use Controladores\ControladorGuiaRemision;
                             <label for="" class="placa">N° Placa Veículo <span style="color:red; border-style: none !important;">*</span> </label>
                             <input type="text" class="form-control" id="placa" name="placa" placeholder="Número de placa">
 
-                            <div id="reloadC"></div>
+                            <div class="input-group-c-apellidos">
+                              <label for="" class="apellidosRazon">Num. Brevete Conductor <span style="color:red; border-style: none !important;">*</span> </label>
+                              <input type="text" class="form-control" id="numBrevete" name="numBrevete" placeholder="Num. Brevete">
+                            </div>
 
                           </div>
                         </div>
