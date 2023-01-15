@@ -1237,7 +1237,7 @@ class GeneradorXML
             <cbc:FamilyName>' . $datosGuia['transportista']['apellidosRazon'] . '</cbc:FamilyName>
             <cbc:JobTitle>Principal</cbc:JobTitle>
             <cac:IdentityDocumentReference>
-            <cbc:ID>X' . $datosGuia['transportista']['numDocChofer'] . '</cbc:ID>
+            <cbc:ID>' . $datosGuia['transportista']['numBreveteChofer'] . '</cbc:ID>
             </cac:IdentityDocumentReference>
 			</cac:DriverPerson>';
       endif;

@@ -143,6 +143,7 @@ class ControladorGuiaRemision
                 'placa' => strtoupper($datosForm['placa']),
                 'tipoDocChofer' => $datosForm['tipoDocTransporte'],
                 'numDocChofer' => $datosForm['docTransporte'],
+                'numBreveteChofer' => strtoupper($datosForm['numBrevete']),
 
             );
         } else {
@@ -154,7 +155,7 @@ class ControladorGuiaRemision
                 'placa' => '',
                 'tipoDocChofer' => $datosForm['tipoDocTransporte'],
                 'numDocChofer' => $datosForm['docTransporte'],
-
+                'numBreveteChofer' => ''
             );
         }
 
