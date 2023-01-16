@@ -532,9 +532,7 @@ use Controladores\ControladorGuiaRemision;
                                   <div class="form-group">
                                     <div class="input-group">
                                       <span class="input-group-addon"><i class="far fa-comment-dots"></i></span>
-                                      <textarea class="form-control" name="comentario" id="comentario" cols="50" rows="4" placeholder="Escribe aquí una observacion">
-
-                                    </textarea>
+                                      <textarea class="form-control" name="comentario" id="comentario" cols="50" rows="4" placeholder="Escribe aquí una observacion" maxlength="250"></textarea>
                                     </div>
                                   </div>
                                 </td>

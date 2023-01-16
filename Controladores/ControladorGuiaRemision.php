@@ -87,7 +87,7 @@ class ControladorGuiaRemision
             'fechaEmision' => $fechaEmision,
             'horaEmision' => date('H:i:s'),
             'tipoDoc' => '09',
-            'observacion' => isset($datosForm['comentario']) ? $datosForm['comentario'] : '',
+            'observacion' => isset($datosForm['comentario']) ? trim($datosForm['comentario']) : '',
         );
 
 
@@ -229,11 +229,11 @@ class ControladorGuiaRemision
         $ruta = "../api/xml/";
         if (
             !empty($datosForm['idCliente']) && !empty($datosForm['docIdentidad']) && !empty($datosForm['razon_social'])
-            && !empty($datosForm['fechaInicialTraslado']) && !empty($datosForm['pesoBruto']) && !empty($datosForm['numeroBultos']) && !empty($datosForm['docTransporte']) && !empty($datosForm['nombreRazon'])  && !empty($datosForm['direccionPartida']) && !empty($datosForm['ubigeoPartida']) && !empty($datosForm['direccionLlegada']) && !empty($datosForm['ubigeoLlegada']) && !empty($datosForm['numBrevete'])
+            && !empty($datosForm['fechaInicialTraslado']) && !empty($datosForm['pesoBruto']) && !empty($datosForm['numeroBultos']) && !empty($datosForm['docTransporte']) && !empty($datosForm['nombreRazon'])  && !empty($datosForm['direccionPartida']) && !empty($datosForm['ubigeoPartida']) && !empty($datosForm['direccionLlegada']) && !empty($datosForm['ubigeoLlegada'])
         ) {
 
 
-            if (($datosForm['modalidadTraslado'] == '02' && !empty($datosForm['placa'])) || ($datosForm['modalidadTraslado'] == '01' && empty($datosForm['placa']))) {
+            if (($datosForm['modalidadTraslado'] == '02' && !empty($datosForm['placa'])  && !empty($datosForm['numBrevete'])) || ($datosForm['modalidadTraslado'] == '01' && empty($datosForm['placa']))) {
 
                 if (!empty($detalle)) {
 
