@@ -83,10 +83,10 @@ $(document).on("change", "#modalidadTraslado", function () {
   if (motivo == "01") {
     document.getElementById("tipoDocTransporte").value = "6";
     $("#formGuia .docTransporte").html(
-      `N° RUC Empresa Transporte <span style="color:red; border-style: none !important;">*</span>`
+      `N° RUC Empresa Transporte <span style="color:red; border-style: none !important; font-size:20px;">*</span>`
     );
     $("#formGuia .nombreRazon").html(
-      `Razón Social <span style="color:red; border-style: none !important;">*</span>`
+      `Razón Social <span style="color:red; border-style: none !important; font-size:20px;">*</span>`
     );
     $("#formGuia #docTransporte").val("");
     $("#formGuia #nombreRazon").val("");
@@ -100,10 +100,10 @@ $(document).on("change", "#modalidadTraslado", function () {
   } else {
     document.getElementById("tipoDocTransporte").value = "1";
     $("#formGuia .docTransporte").html(
-      `N° DNI Conductor <span style="color:red; border-style: none !important;">*</span>`
+      `N° DNI Conductor <span style="color:red; border-style: none !important; font-size:20px;">*</span>`
     );
     $("#formGuia .nombreRazon").html(
-      `Nombre Conductor <span style="color:red; border-style: none !important;">*</span>`
+      `Nombre Conductor <span style="color:red; border-style: none !important; font-size:20px;">*</span>`
     );
     $("#formGuia #docTransporte").val("");
     $("#formGuia #nombreRazon").val("");
@@ -144,7 +144,7 @@ $(document).on("change", "#tipoDocTransporte", function () {
 });
 $(document).on("change", "#tipoVehiculo", function () {
   tipoVehiculo = $(this).val();
-  if (tipoVehiculo != "menores") {
+  if (tipoVehiculo != "otros") {
     $(".datos-del-transporte").hide();
   } else {
     $(".datos-del-transporte").show();

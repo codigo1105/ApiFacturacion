@@ -117,7 +117,7 @@ use Controladores\ControladorGuiaRemision;
 
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label for="" class="tipoDocTransporte">Tipo Documento <span style="color:red; border-style: none !important;">*</span> </label>
+                          <label for="" class="tipoDocTransporte">Tipo Documento <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                           <div class="input-group">
                             <!-- ID CLIENTE -->
                             <input type="hidden" name="idCliente" id="idCliente">
@@ -147,7 +147,7 @@ use Controladores\ControladorGuiaRemision;
                       <div class="col-md-4">
 
                         <div class="form-group">
-                          <label for="" class="tipoDocTransporte">N° Documento<span style="color:red; border-style: none !important;">*</span> </label>
+                          <label for="" class="tipoDocTransporte">N° Documento<span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                           <div class="input-group">
                             <div id="rucActivo"></div>
 
@@ -162,7 +162,7 @@ use Controladores\ControladorGuiaRemision;
                       <div class="col-md-5">
                         <div class="form-group">
                           <div class="input-group-adddon">
-                            <label for="" class="tipoDocTransporte">Nombre o RS <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="" class="tipoDocTransporte">Nombre o RS <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <input type="text" class="form-control" id="razon_social"" name=" razon_social" placeholder="Ingrese nombre o razón social...">
                             <!-- <span class="input-group-addon"></span>  -->
                           </div>
@@ -180,7 +180,7 @@ use Controladores\ControladorGuiaRemision;
                       <div class="col-md-3">
                         <div class="form-group">
                           <div class="input-group">
-                            <label for="">Motivo del Traslado <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="">Motivo del Traslado <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <select class="form-control" name="motivoTraslado" id="motivoTraslado">
                               <?php
                               $tabla = 'motivo_traslado';
@@ -203,7 +203,7 @@ use Controladores\ControladorGuiaRemision;
 
                         <div class="form-group">
                           <div class="input-group">
-                            <label for="">Modalidad del Traslado <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="">Modalidad del Traslado <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <select class="form-control" name="modalidadTraslado" id="modalidadTraslado">
                               <?php
 
@@ -225,9 +225,9 @@ use Controladores\ControladorGuiaRemision;
                       <div class="col-md-3">
                         <div class="form-group">
                           <div class="input-group-adddon">
-                            <label for="">Tipo de vehículo <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="">Tipo de vehículo <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <select class="form-control" name="tipoVehiculo" id="tipoVehiculo">
-                              <option value="menores">MENORES</option>
+                              <option value="otros">Otros</option>
                               <option value="M1">M1</option>
                               <option value="L">L</option>
                             </select>
@@ -239,7 +239,7 @@ use Controladores\ControladorGuiaRemision;
                       <div class="col-md-3">
                         <div class="form-group">
                           <div class="input-group-adddon">
-                            <label for="">Fecha Inicial de Traslado <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="">Fecha Inicial de Traslado <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <input type="text" class="form-control" id="fechaInicialTraslado" name="fechaInicialTraslado" value="<?php echo date("d/m/Y") ?>">
 
                           </div>
@@ -253,7 +253,7 @@ use Controladores\ControladorGuiaRemision;
                       <div class="col-md-3">
                         <div class="form-group">
                           <div class="input-group-adddon">
-                            <label for="">Peso bruto (KGM) <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="">Peso bruto (KGM) <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <input type="number" class="form-control" id="pesoBruto" name="pesoBruto">
                             <!-- <span class="input-group-addon"><i class="fa fa-search"></i></span>  -->
                           </div>
@@ -263,7 +263,7 @@ use Controladores\ControladorGuiaRemision;
                       <div class="col-md-3">
                         <div class="form-group">
                           <div class="input-group-adddon">
-                            <label for="">Número de bultos <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="">Número de bultos <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <input type="number" class="form-control" id="numeroBultos" name="numeroBultos">
                             <!-- <span class="input-group-addon"><i class="fa fa-search"></i></span>  -->
                           </div>
@@ -301,7 +301,7 @@ use Controladores\ControladorGuiaRemision;
                       <div class="col-md-3">
                         <div class="form-group">
                           <div class="input-group">
-                            <label for="" class="tipoDocTransporte">Tipo Documento <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="" class="tipoDocTransporte">Tipo Documento <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <select class="form-control" name="tipoDocTransporte" id="tipoDocTransporte">
                               <?php
                               $item = null;
@@ -320,7 +320,7 @@ use Controladores\ControladorGuiaRemision;
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label for="" class="docTransporte">N° DNI Conductor <span style="color:red; border-style: none !important;">*</span> </label>
+                          <label for="" class="docTransporte">N° DNI Conductor <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                           <div class="input-group">
 
                             <input type="text" class="form-control" id="docTransporte" name="docTransporte" placeholder="Ingrese número de documento...">
@@ -334,12 +334,12 @@ use Controladores\ControladorGuiaRemision;
                       <div class="col-md-4 nombre-razon">
                         <div class="form-group">
                           <div class="input-group-">
-                            <label for="" class="nombreRazon">Nombre Conductor <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="" class="nombreRazon">Nombre Conductor <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <input type="text" class="form-control" id="nombreRazon" name="nombreRazon" placeholder="Nombre o Razón Social">
 
                           </div>
                           <div class="input-group-c-apellidos">
-                            <label for="" class="apellidosRazon">Apellidos Conductor <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="" class="apellidosRazon">Apellidos Conductor <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <input type="text" class="form-control" id="apellidosRazon" name="apellidosRazon" placeholder="Apellidos">
                           </div>
                         </div>
@@ -349,11 +349,11 @@ use Controladores\ControladorGuiaRemision;
                       <div class="col-md-2 placa-v">
                         <div class="form-group">
                           <div class="input-group-">
-                            <label for="" class="placa">N° Placa Veículo <span style="color:red; border-style: none !important;">*</span> </label>
+                            <label for="" class="placa">N° Placa Veículo <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>
                             <input type="text" class="form-control" id="placa" name="placa" placeholder="Número de placa">
 
                             <div class="input-group-c-apellidos">
-                              <label for="" class="apellidosRazon">Num. Brevete <span style="color:red; border-style: none !important;">*</span></label>
+                              <label for="" class="apellidosRazon">Num. Brevete <span style="color:red; border-style: none !important; font-size:20px;">*</span></label>
                               <input type="text" class="form-control" id="numBrevete" name="numBrevete" placeholder="en M1 obligatorio">
                             </div>
 
@@ -368,7 +368,7 @@ use Controladores\ControladorGuiaRemision;
                                     <div class="col-md-3">
                                     <div class="form-group">
                                    <div class="input-group"> 
-                                    <label for="" class="tipoDocConductor">Tipo Documento <span style="color:red; border-style: none !important;">*</span> </label>     
+                                    <label for="" class="tipoDocConductor">Tipo Documento <span style="color:red; border-style: none !important; font-size:20px;">*</span> </label>     
                                       <select class="form-control" name="tipoDocConductor" id="tipoDocConductor">
                                         <?php
                                         $item = null;
@@ -420,7 +420,7 @@ use Controladores\ControladorGuiaRemision;
                           <div class="col-md-12">
                             <div class="form-group">
 
-                              <label for="" class="placa">Dirección <span style="color:red; border-style: none !important;">*</span> </label>
+                              <label for="" class="placa">Dirección <span style="color:red; border-style: none !important; font-size: 20px;">*</span> </label>
                               <input type="text" class="form-control" id="direccionPartida" name="direccionPartida" placeholder="Dirección de Partida">
 
                             </div>
@@ -429,7 +429,7 @@ use Controladores\ControladorGuiaRemision;
                         <div class="row">
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label for="" class="placa">Ubigeo <span style="color:red; border-style: none !important;">*</span> </label>
+                              <label for="" class="placa">Ubigeo <span style="color:red; border-style: none !important; font-size: 20px;">*</span> </label>
                               <input type="text" class="form-control" id="ubigeoPartida" name="ubigeoPartida">
 
                               <div class="resultado-ubigeos-partida"></div>
@@ -447,7 +447,7 @@ use Controladores\ControladorGuiaRemision;
                           <div class="col-md-12">
                             <div class="form-group">
                               <div class="input-group-">
-                                <label for="" class="placa">Dirección <span style="color:red; border-style: none !important;">*</span> </label>
+                                <label for="" class="placa">Dirección <span style="color:red; border-style: none !important; font-size: 20px;">*</span> </label>
                                 <input type="text" class="form-control" id="direccionLlegada" name="direccionLlegada" placeholder="Dirección de LLegada">
 
                               </div>
@@ -458,7 +458,7 @@ use Controladores\ControladorGuiaRemision;
                           <div class="col-md-12">
                             <div class="form-group">
 
-                              <label for="" class="placa">Ubigeo <span style="color:red; border-style: none !important;">*</span> </label>
+                              <label for="" class="placa">Ubigeo <span style="color:red; border-style: none !important; font-size: 20px;">*</span> </label>
                               <input type="text" class="form-control" id="ubigeoLlegada" name="ubigeoLlegada">
                               <div class="resultado-ubigeos-llegada"></div>
 
