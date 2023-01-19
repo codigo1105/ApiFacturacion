@@ -131,7 +131,8 @@ class ControladorGuiaRemision
             'numBultos' => $datosForm['numeroBultos'],
             'indTransbordo' => 'false',
             'modTraslado' => $datosForm['modalidadTraslado'],
-            'fechaTraslado' => $fechaTraslado
+            'fechaTraslado' => $fechaTraslado,
+            'tipoVehiculo' => isset($datosForm['tipoVehiculo']) ? $datosForm['tipoVehiculo'] : ''
 
         );
         if ($datosForm['modalidadTraslado'] == '02') {
@@ -229,64 +230,64 @@ class ControladorGuiaRemision
         $ruta = "../api/xml/";
         if (
             !empty($datosForm['idCliente']) && !empty($datosForm['docIdentidad']) && !empty($datosForm['razon_social'])
-            && !empty($datosForm['fechaInicialTraslado']) && !empty($datosForm['pesoBruto']) && !empty($datosForm['numeroBultos']) && !empty($datosForm['docTransporte']) && !empty($datosForm['nombreRazon'])  && !empty($datosForm['direccionPartida']) && !empty($datosForm['ubigeoPartida']) && !empty($datosForm['direccionLlegada']) && !empty($datosForm['ubigeoLlegada'])
+            && !empty($datosForm['fechaInicialTraslado']) && !empty($datosForm['pesoBruto']) && !empty($datosForm['numeroBultos'])   && !empty($datosForm['direccionPartida']) && !empty($datosForm['ubigeoPartida']) && !empty($datosForm['direccionLlegada']) && !empty($datosForm['ubigeoLlegada'])
         ) {
 
 
-            if (($datosForm['modalidadTraslado'] == '02' && !empty($datosForm['placa'])  && !empty($datosForm['numBrevete'])) || ($datosForm['modalidadTraslado'] == '01' && empty($datosForm['placa']))) {
+            // if (($datosForm['modalidadTraslado'] == '02' && !empty($datosForm['placa'])  && !empty($datosForm['numBrevete'])) || ($datosForm['modalidadTraslado'] == '01' && empty($datosForm['placa']))) {
 
-                if (!empty($detalle)) {
+            if (!empty($detalle)) {
 
 
-                    if ($datosForm['envioSunat'] != 'no') {
+                if ($datosForm['envioSunat'] != 'no') {
 
-                        if ($datosForm['envioSunat'] == 'firmar') {
-                            $generadoXML = new GeneradorXML();
-                            $generadoXML->CrearXMLGuiaRemision($ruta . $nombre, $datosGuia, $detalle);
+                    if ($datosForm['envioSunat'] == 'firmar') {
+                        $generadoXML = new GeneradorXML();
+                        $generadoXML->CrearXMLGuiaRemision($ruta . $nombre, $datosGuia, $detalle);
 
-                            echo "EL COMPROBANTE HA SIDO FIRMADO";
-                        }
-                        if ($datosForm['envioSunat'] == 'enviar') {
-                            $generadoXML = new GeneradorXML();
-                            $generadoXML->CrearXMLGuiaRemision($ruta . $nombre, $datosGuia, $detalle);
-
-                            $api = new ApiFacturacion();
-                            $api->EnviarGuiaRemision($emisor, $nombre, $ruta_archivo_xml, $ruta_archivo_cdr, "../");
-                            $token = $api->token;
-                            $ticket = $api->ticketS;
-                            $nombre_archivo = $nombre . '.zip';
-                            //CONSULTAR TICKET=============================
-                            $obtenerCdr = new ApiFacturacion();
-                            $obtenerCdr->ConsultarTicketGuiaRemision($emisor, $ticket, $token, $nombre_archivo, $nombre, $ruta_archivo_cdr);
-                            $codigosSunat = array(
-                                "feestado" => $obtenerCdr->codrespuesta,
-                                "fecodigoerror"  => $obtenerCdr->coderror,
-                                "femensajesunat"  => $obtenerCdr->mensajeError,
-                                "nombrexml"  => $api->xml,
-                                "xmlbase64"  => $obtenerCdr->xmlb64,
-                                "cdrbase64"  => $obtenerCdr->cdrb64,
-                            );
-                        }
+                        echo "EL COMPROBANTE HA SIDO FIRMADO";
                     }
+                    if ($datosForm['envioSunat'] == 'enviar') {
+                        $generadoXML = new GeneradorXML();
+                        $generadoXML->CrearXMLGuiaRemision($ruta . $nombre, $datosGuia, $detalle);
+
+                        $api = new ApiFacturacion();
+                        $api->EnviarGuiaRemision($emisor, $nombre, $ruta_archivo_xml, $ruta_archivo_cdr, "../");
+                        $token = $api->token;
+                        $ticket = $api->ticketS;
+                        $nombre_archivo = $nombre . '.zip';
+                        //CONSULTAR TICKET=============================
+                        $obtenerCdr = new ApiFacturacion();
+                        $obtenerCdr->ConsultarTicketGuiaRemision($emisor, $ticket, $token, $nombre_archivo, $nombre, $ruta_archivo_cdr);
+                        $codigosSunat = array(
+                            "feestado" => $obtenerCdr->codrespuesta,
+                            "fecodigoerror"  => $obtenerCdr->coderror,
+                            "femensajesunat"  => $obtenerCdr->mensajeError,
+                            "nombrexml"  => $api->xml,
+                            "xmlbase64"  => $obtenerCdr->xmlb64,
+                            "cdrbase64"  => $obtenerCdr->cdrb64,
+                        );
+                    }
+                }
 
 
-                    $datos = array(
-                        'id' => $datosForm['serie'],
-                        'correlativo' => $datosGuia['guia']['correlativo'],
-                    );
+                $datos = array(
+                    'id' => $datosForm['serie'],
+                    'correlativo' => $datosGuia['guia']['correlativo'],
+                );
 
-                    $actualizarSerie = ControladorSunat::ctrActualizarCorrelativo($datos);
-                    $guardarGuia = ControladorGuiaRemision::ctrGuardarGuia($datosGuia, $codigosSunat);
-                    $guiaid = ModeloGuiaRemision::mdlObtenerUltimoComprobanteIdGuia();
-                    $idGuia = $guiaid['id'];
+                $actualizarSerie = ControladorSunat::ctrActualizarCorrelativo($datos);
+                $guardarGuia = ControladorGuiaRemision::ctrGuardarGuia($datosGuia, $codigosSunat);
+                $guiaid = ModeloGuiaRemision::mdlObtenerUltimoComprobanteIdGuia();
+                $idGuia = $guiaid['id'];
 
-                    $insertarDetalles = ModeloGuiaRemision::mdlInsertarDetallesGuia($idGuia, $detalle);
-
-
-                    if ($guardarGuia == 'ok') {
+                $insertarDetalles = ModeloGuiaRemision::mdlInsertarDetallesGuia($idGuia, $detalle);
 
 
-                        echo "
+                if ($guardarGuia == 'ok') {
+
+
+                    echo "
                        <div class='contenedor-print'>
                       <form id='printC' name='printC' method='post' action='vistas/print/printguia/' target='_blank'>
                      <input type='radio' id='a4' name='a4' value='A4'>
@@ -296,17 +297,17 @@ class ControladorGuiaRemision
                       </form></div>";
 
 
-                        echo "<script>
+                    echo "<script>
                       
                           $('#formGuia').each(function(){
                             this.reset();	
                             $('.nuevoProducto table #itemsPG').html('');
                         })
                         </script>";
-                        unset($_SESSION['carritoG']);
-                    }
-                } else {
-                    echo "<script>
+                    unset($_SESSION['carritoG']);
+                }
+            } else {
+                echo "<script>
                         Swal.fire({
                             icon: 'error',
                             title: 'SE NECESITA PRODUCTOS O SERVICIOS',
@@ -314,17 +315,17 @@ class ControladorGuiaRemision
                             html: `Debes ingresar productos o servicios que se encuentren o van a ir en la FACTURA o BOLETA`
                         })
                             </script>";
-                }
-            } else {
-                echo "<script>
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'CAMPOS OBLIGATORIOS',
-                            text: 'LLENE TODOS LOS CAMPOS OBLIGATORIOS',
-                            html: `Debes ingresar todos los campos requeridos (<span style='color:red; font-size: 18px;'>*</span>)`
-                        })
-                            </script>";
             }
+            // } else {
+            //     echo "<script>
+            //             Swal.fire({
+            //                 icon: 'error',
+            //                 title: 'CAMPOS OBLIGATORIOS',
+            //                 text: 'LLENE TODOS LOS CAMPOS OBLIGATORIOS',
+            //                 html: `Debes ingresar todos los campos requeridos (<span style='color:red; font-size: 18px;'>*</span>)`
+            //             })
+            //                 </script>";
+            // }
         } else {
 
             echo "<script>

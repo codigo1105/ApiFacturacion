@@ -177,7 +177,7 @@ use Controladores\ControladorGuiaRemision;
                           <h3>2</h3>
                         </label> Datos de Traslado:</legend>
 
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                         <div class="form-group">
                           <div class="input-group">
                             <label for="">Motivo del Traslado <span style="color:red; border-style: none !important;">*</span> </label>
@@ -199,7 +199,7 @@ use Controladores\ControladorGuiaRemision;
                       </div>
 
                       <!-- ENTRADA DOCUMENTO -->
-                      <div class="col-md-4">
+                      <div class="col-md-3">
 
                         <div class="form-group">
                           <div class="input-group">
@@ -222,7 +222,21 @@ use Controladores\ControladorGuiaRemision;
                         </div>
                       </div>
                       <!-- ENTRADA RESULTADO DOCUMENTO -->
-                      <div class="col-md-4">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <div class="input-group-adddon">
+                            <label for="">Tipo de vehículo <span style="color:red; border-style: none !important;">*</span> </label>
+                            <select class="form-control" name="tipoVehiculo" id="tipoVehiculo">
+                              <option value="menores">MENORES</option>
+                              <option value="M1">M1</option>
+                              <option value="L">L</option>
+                            </select>
+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- ENTRADA RESULTADO DOCUMENTO -->
+                      <div class="col-md-3">
                         <div class="form-group">
                           <div class="input-group-adddon">
                             <label for="">Fecha Inicial de Traslado <span style="color:red; border-style: none !important;">*</span> </label>
@@ -279,7 +293,7 @@ use Controladores\ControladorGuiaRemision;
                     </div>
 
 
-                    <div class="row">
+                    <div class="row datos-del-transporte">
                       <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
                           <h3>3</h3>
                         </label> Datos del transporte:</legend>
@@ -339,8 +353,8 @@ use Controladores\ControladorGuiaRemision;
                             <input type="text" class="form-control" id="placa" name="placa" placeholder="Número de placa">
 
                             <div class="input-group-c-apellidos">
-                              <label for="" class="apellidosRazon">Num. Brevete Conductor <span style="color:red; border-style: none !important;">*</span> </label>
-                              <input type="text" class="form-control" id="numBrevete" name="numBrevete" placeholder="Num. Brevete">
+                              <label for="" class="apellidosRazon">Num. Brevete <span style="color:red; border-style: none !important;">*</span></label>
+                              <input type="text" class="form-control" id="numBrevete" name="numBrevete" placeholder="en M1 obligatorio">
                             </div>
 
                           </div>

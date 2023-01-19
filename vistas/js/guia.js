@@ -96,6 +96,7 @@ $(document).on("change", "#modalidadTraslado", function () {
     $(".input-group-c-apellidos").hide();
     $(".nombre-razon").removeClass("col-md-4");
     $(".nombre-razon").addClass("col-md-6");
+    $("#tipoVehiculo").prop("disabled", true);
   } else {
     document.getElementById("tipoDocTransporte").value = "1";
     $("#formGuia .docTransporte").html(
@@ -110,6 +111,7 @@ $(document).on("change", "#modalidadTraslado", function () {
     $(".input-group-c-apellidos").show();
     $(".nombre-razon").removeClass("col-md-6");
     $(".nombre-razon").addClass("col-md-4");
+    $("#tipoVehiculo").prop("disabled", false);
   }
 });
 $(document).on("change", "#tipoDocTransporte", function () {
@@ -140,7 +142,14 @@ $(document).on("change", "#tipoDocTransporte", function () {
     );
   }
 });
-
+$(document).on("change", "#tipoVehiculo", function () {
+  tipoVehiculo = $(this).val();
+  if (tipoVehiculo != "menores") {
+    $(".datos-del-transporte").hide();
+  } else {
+    $(".datos-del-transporte").show();
+  }
+});
 $(document).on("click", ".btnGuardarGuia", function (e) {
   let dataForm = $("#formGuia").serialize();
   Swal.fire({

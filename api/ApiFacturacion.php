@@ -441,7 +441,7 @@ class ApiFacturacion
 		} else {
 			$response = curl_exec($ch);
 		}
-
+		// var_dump($response);
 		// ejecucion del llamado y respuesta del WS SUNAT.
 
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE); // objten el codigo de respuesta de la peticion al WS SUNAT

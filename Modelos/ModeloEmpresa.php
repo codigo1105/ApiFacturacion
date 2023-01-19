@@ -287,6 +287,13 @@ class ModeloEmpresa
             $stmt->execute();
             array_push($success,  'Se agrego el campo secret_id a la tabla emisor');
         };
+        $stmt = Conexion::conectar()->prepare("SHOW COLUMNS FROM guia WHERE Field = 'tipovehiculo'");
+        $stmt->execute();
+        if ($stmt->rowCount() == 0) {
+            $stmt = Conexion::conectar()->prepare("ALTER TABLE guia ADD tipovehiculo VARCHAR(8) NULL AFTER cdrbase64");
+            $stmt->execute();
+            array_push($success,  'Se agrego el campo tipovehiculo a la tabla guia');
+        };
         if (count($success) > 0) {
             foreach ($success as $k => $succ) {
                 echo ++$k . ' - ' . $succ . '<br>';

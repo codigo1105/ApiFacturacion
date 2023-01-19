@@ -1203,6 +1203,11 @@ class GeneradorXML
 
       $xml .= '<cbc:GrossWeightMeasure unitCode="' . $datosGuia['datosEnvio']['uniPesoTotal'] . '">' . $datosGuia['datosEnvio']['pesoTotal'] . '</cbc:GrossWeightMeasure>';
 
+      if ($datosGuia['datosEnvio']['tipoVehiculo'] != 'menores') :
+
+         $xml .= '<cbc:SpecialInstructions>SUNAT_Envio_IndicadorTrasladoVehiculoM1L</cbc:SpecialInstructions>';
+
+      endif;
       // if ($datosGuia['datosEnvio']['numBultos'] > 0) :
       //    $xml .= '<cbc:TotalTransportHandlingUnitQuantity>' . $datosGuia['datosEnvio']['numBultos'] . '</cbc:TotalTransportHandlingUnitQuantity>';
       // endif;
@@ -1214,7 +1219,7 @@ class GeneradorXML
 				<cbc:StartDate>' . $datosGuia['datosEnvio']['fechaTraslado'] . '</cbc:StartDate>
 			</cac:TransitPeriod>';
 
-      if ($datosGuia['datosEnvio']['modTraslado'] == '01') :
+      if ($datosGuia['datosEnvio']['modTraslado'] == '01'  && $datosGuia['datosEnvio']['tipoVehiculo'] == '') :
          $xml .=   '<cac:CarrierParty>
 				<cac:PartyIdentification>
 					<cbc:ID schemeID="' . $datosGuia['transportista']['tipoDoc'] . '">' . $datosGuia['transportista']['numDoc'] . '</cbc:ID>
@@ -1229,7 +1234,7 @@ class GeneradorXML
       endif;
 
 
-      if ($datosGuia['datosEnvio']['modTraslado'] == '02') :
+      if ($datosGuia['datosEnvio']['modTraslado'] == '02' && $datosGuia['datosEnvio']['tipoVehiculo'] == 'menores') :
 
          $xml .= '<cac:DriverPerson>
 				<cbc:ID schemeID="' . $datosGuia['transportista']['tipoDocChofer'] . '">' . $datosGuia['transportista']['numDocChofer'] . '</cbc:ID>
@@ -1259,7 +1264,7 @@ class GeneradorXML
             </cac:DespatchAddress>
             </cac:Despatch>
 		</cac:Delivery>';
-      if ($datosGuia['datosEnvio']['modTraslado'] == '02') :
+      if ($datosGuia['datosEnvio']['modTraslado'] == '02' && $datosGuia['datosEnvio']['tipoVehiculo'] == 'menores') :
          $xml .= '
          <cac:TransportHandlingUnit>
             <cac:TransportEquipment>

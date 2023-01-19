@@ -120,7 +120,7 @@ class AjaxEmpresa
     {
 
         $respuesta = ControladorEmpresa::ctrAgregarCampoTablas();
-       echo $respuesta;
+        echo $respuesta;
     }
 }
 if (isset($_POST['modo'])) {
