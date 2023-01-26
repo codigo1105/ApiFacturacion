@@ -433,21 +433,21 @@
                 </div>
                 <!-- ENTRADA 2 -->
                 <div class="col-md-5">
-                  <label for="" class="lbl-text">Clave Pública</label>
+                  <label for="" class="lbl-text">Clave de Sitio web</label>
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                      <input type="text" class="form-control" id="clavePublica" name="clavePublica" placeholder="Ingrese clave publica..." value="<?php echo @$emisor['clavePublica']; ?>">
+                      <input type="text" class="form-control" id="clavePublica" name="clavePublica" placeholder="Ingrese clave web..." value="<?php echo @$emisor['clavePublica']; ?>">
                     </div>
                   </div>
                 </div>
                 <!-- ENTRADA 3 -->
                 <div class="col-md-5">
-                  <label for="" class="lbl-text">Clave Privada</label>
+                  <label for="" class="lbl-text">Clave Secreta</label>
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                      <input type="text" class="form-control" id="clavePrivada" name="clavePrivada" placeholder="Ingrese clave privada..." value="<?php echo @$emisor['clavePrivada']; ?>">
+                      <input type="text" class="form-control" id="clavePrivada" name="clavePrivada" placeholder="Ingrese clave secreta..." value="<?php echo @$emisor['clavePrivada']; ?>">
                     </div>
                   </div>
                 </div>
