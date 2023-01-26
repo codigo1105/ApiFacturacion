@@ -95,9 +95,9 @@
               <input type="hidden" name="idEmisor" id="idEmisor" value="<?php echo $emisor['id']; ?>">
 
               <div class="col col-xs-12">
-              <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
-                          <h3>1</h3>
-                        </label> Configuración del R.U.C.:</legend>
+                <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
+                    <h3>1</h3>
+                  </label> Configuración del R.U.C.:</legend>
 
                 <!-- ENTRADA 1 -->
                 <div class="col-md-4">
@@ -202,9 +202,9 @@
               </div>
 
               <div class="col col-xs-12">
-              <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
-                          <h3>2</h3>
-                        </label> Configuración para producción:</legend>
+                <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
+                    <h3>2</h3>
+                  </label> Configuración para producción:</legend>
                 <!-- ENTRADA 1 -->
                 <div class="col-md-2">
                   <div id="reloadC"></div>
@@ -251,7 +251,7 @@
                 </div>
                 <!-- ENTRADA 4-->
                 <div class="col-md-2">
-                  
+
                   <div id="reloadC"></div>
                   <div class="form-group">
                     <label for="" class="lbl-text">¿Afecto a IGV?</label>
@@ -309,9 +309,9 @@
 
               <!-- BIENES Y SERVICIOS REGION SELVA -->
               <div class="col-xs-12">
-              <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
-                          <h3>3</h3>
-                        </label> Configuración para la Amazonia:</legend>
+                <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
+                    <h3>3</h3>
+                  </label> Configuración para la Amazonia:</legend>
                 <div class="contenedor-selva">
 
                   <div class="modo-contenedor-selva bienes-selva">
@@ -332,8 +332,8 @@
               <div class="col col-xs-12">
 
                 <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
-                          <h3>4</h3>
-                        </label> Configuración de envío de correo:</legend>
+                    <h3>4</h3>
+                  </label> Configuración de envío de correo:</legend>
                 <!-- ENTRADA 1 -->
                 <div class="col-md-6">
                   <div class="form-group">
@@ -416,6 +416,41 @@
                   </div>
                 </div>
 
+              </div>
+              <!-- ÁREA DE CONFIGURACION RECAPTCHA====================== -->
+              <div class="col col-xs-12">
+
+                <legend class="text-bold" style="margin-left:15px; font-size:1.3em; letter-spacing: 1px;"><label class="number-guiar">
+                    <h3>5</h3>
+                  </label> Configurar seguridad RECAPTCHA:</legend>
+                <!-- ENTRADA 1 -->
+                <div class="col-md-2">
+                  <label for="" class="lbl-text">activar RECAPTCHA</label>
+                  <select class="form-control rseguridad" idSeguridad="<?php echo @$emisor['conexion'];  ?>" name="rseguridad" id="rseguridad">
+                    <option value="s">Sí</option>
+                    <option value="n">No</option>
+                  </select>
+                </div>
+                <!-- ENTRADA 2 -->
+                <div class="col-md-5">
+                  <label for="" class="lbl-text">Clave Pública</label>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                      <input type="text" class="form-control" id="clavePublica" name="clavePublica" placeholder="Ingrese clave publica..." value="<?php echo @$emisor['clavePublica']; ?>">
+                    </div>
+                  </div>
+                </div>
+                <!-- ENTRADA 3 -->
+                <div class="col-md-5">
+                  <label for="" class="lbl-text">Clave Privada</label>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                      <input type="text" class="form-control" id="clavePrivada" name="clavePrivada" placeholder="Ingrese clave privada..." value="<?php echo @$emisor['clavePrivada']; ?>">
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div class="contenedor-archivo">
