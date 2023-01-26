@@ -6,7 +6,9 @@ use Controladores\ControladorEmpresa;
 
 $emisor = ControladorEmpresa::ctrEmisorConexion();
 $respuesta = ControladorUsuarios::ctrConn();
-
+if ($emisor['conexion'] == 's' && strlen($emisor['clavePublica']) < 15 || strlen($emisor['clavePrivada']) < 15 && ($emisor['clavePublica'] == '' || $emisor['clavePublica'] == null)) {
+  @$change = ControladorEmpresa::ctrCambiarSeguridad();
+}
 ?>
 <div class="log-cont">
   <div class="login-box">
@@ -77,5 +79,5 @@ $respuesta = ControladorUsuarios::ctrConn();
   <div class="fnd"></div>
 </div>
 <?php if ($emisor['conexion'] == 's') { ?>
-<script src="https://www.google.com/recaptcha/api.js?render=<?php echo $emisor['clavePublica']; ?>"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=<?php echo $emisor['clavePublica']; ?>"></script>
 <?php } ?>

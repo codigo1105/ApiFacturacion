@@ -4,8 +4,7 @@ namespace Controladores;
 
 use Modelos\ModeloUsuarios;
 use Controladores\ControladorEmpresa;
-
-
+use Modelos\ModeloEmpresa;
 
 class ControladorUsuarios
 {
@@ -446,4 +445,5 @@ class ControladorUsuarios
             return 'error';
         }
     }
+   
 }

@@ -312,6 +312,7 @@ class ModeloEmpresa
             $stmt->execute();
             array_push($success,  'Se agrego el campo tipovehiculo a la tabla guia');
         };
+
         if (count($success) > 0) {
             foreach ($success as $k => $succ) {
                 echo ++$k . ' - ' . $succ . '<br>';
@@ -331,4 +332,10 @@ class ModeloEmpresa
         //     return $total_conteo;
         // }
     }
+    public static function mdlCambiarSeguridad()
+    {
+        $stmt = Conexion::conectar()->prepare("UPDATE emisor SET conexion='n'");
+        $stmt->execute();
+    }
+   
 }

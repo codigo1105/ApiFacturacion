@@ -233,4 +233,11 @@ class ControladorEmpresa
         $this->igv_uno = ($emisor['igv'] / 100) + 1;
         $this->igv_dos = $emisor['igv'] / 100;
     }
+
+    public static function ctrCambiarSeguridad()
+    {
+        $respuesta = ModeloEmpresa::mdlCambiarSeguridad();
+        return $respuesta;
+    }
+ 
 }
