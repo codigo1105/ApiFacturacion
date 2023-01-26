@@ -1,4 +1,3 @@
-
 //   cerrarSession();
 
 function cerrarSession() {
@@ -19,10 +18,12 @@ function cerrarSession() {
 $("#logUser").click(function (e) {
   e.preventDefault();
   var conectar = $("#conectado").val();
+  var clavePublica = $("#cpublica").val();
+
   if (conectar == "ok") {
     grecaptcha.ready(function () {
       grecaptcha
-        .execute("6LdTdcggAAAAAPzue7S6tJumtvWlWCS_Pa1kxPVE", {
+        .execute(clavePublica, {
           action: "validarUsuario",
         })
         .then(function (token) {

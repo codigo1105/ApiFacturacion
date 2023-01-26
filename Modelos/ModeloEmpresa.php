@@ -32,7 +32,7 @@ class ModeloEmpresa
     public static function mdlActualizarDatosEmpresa($datos)
     {
 
-        $stmt = Conexion::conectar()->prepare("UPDATE emisor SET ruc=:ruc, razon_social=:razon_social, nombre_comercial=:nombre_comercial, direccion=:direccion, telefono=:telefono, pais=:pais, departamento=:departamento, provincia=:provincia, distrito=:distrito, ubigeo=:ubigeo, usuario_sol=:usuario_sol, clave_sol=:clave_sol, clave_certificado =:clave_certificado, certificado=:certificado, afectoigv=:afectoigv, correo_ventas=:correo_ventas, correo_soporte=:correo_soporte, servidor=:servidor, contrasena=:contrasena, puerto=:puerto, seguridad=:seguridad, tipo_envio=:tipo_envio, logo=:logo, igv=:igv, client_id=:client_id, secret_id=:secret_id WHERE id=:id");
+        $stmt = Conexion::conectar()->prepare("UPDATE emisor SET ruc=:ruc, razon_social=:razon_social, nombre_comercial=:nombre_comercial, direccion=:direccion, telefono=:telefono, pais=:pais, departamento=:departamento, provincia=:provincia, distrito=:distrito, ubigeo=:ubigeo, usuario_sol=:usuario_sol, clave_sol=:clave_sol, clave_certificado =:clave_certificado, certificado=:certificado, afectoigv=:afectoigv, correo_ventas=:correo_ventas, correo_soporte=:correo_soporte, servidor=:servidor, contrasena=:contrasena, puerto=:puerto, seguridad=:seguridad, tipo_envio=:tipo_envio, conexion=:conexion, logo=:logo, igv=:igv, client_id=:client_id, secret_id=:secret_id, clavePublica=:clavePublica, clavePrivada=:clavePrivada WHERE id=:id");
         $fechaDoc = date("Y-m-d");
         $fechahora = date("Y-m-d H:i:s");
         $stmt->bindParam(":id", $datos['id'], PDO::PARAM_INT);
@@ -58,10 +58,13 @@ class ModeloEmpresa
         $stmt->bindParam(":puerto", $datos['puerto'], PDO::PARAM_STR);
         $stmt->bindParam(":seguridad", $datos['seguridad'], PDO::PARAM_STR);
         $stmt->bindParam(":tipo_envio", $datos['tipo_envio'], PDO::PARAM_STR);
+        $stmt->bindParam(":conexion", $datos['conexion'], PDO::PARAM_STR);
         $stmt->bindParam(":logo", $datos['logo'], PDO::PARAM_STR);
         $stmt->bindParam(":igv", $datos['igv'], PDO::PARAM_INT);
         $stmt->bindParam(":client_id", $datos['client_id'], PDO::PARAM_STR);
         $stmt->bindParam(":secret_id", $datos['secret_id'], PDO::PARAM_STR);
+        $stmt->bindParam(":clavePublica", $datos['clavePublica'], PDO::PARAM_STR);
+        $stmt->bindParam(":clavePrivada", $datos['clavePrivada'], PDO::PARAM_STR);
 
 
         if ($stmt->execute()) {
@@ -286,6 +289,21 @@ class ModeloEmpresa
             $stmt = Conexion::conectar()->prepare("ALTER TABLE emisor ADD secret_id VARCHAR(120) NULL AFTER client_id");
             $stmt->execute();
             array_push($success,  'Se agrego el campo secret_id a la tabla emisor');
+        };
+
+        $stmt = Conexion::conectar()->prepare("SHOW COLUMNS FROM emisor WHERE Field = 'clavePublica'");
+        $stmt->execute();
+        if ($stmt->rowCount() == 0) {
+            $stmt = Conexion::conectar()->prepare("ALTER TABLE emisor ADD clavePublica VARCHAR(120) NULL AFTER secret_id");
+            $stmt->execute();
+            array_push($success,  'Se agrego el campo clavePublica a la tabla emisor');
+        };
+        $stmt = Conexion::conectar()->prepare("SHOW COLUMNS FROM emisor WHERE Field = 'clavePrivada'");
+        $stmt->execute();
+        if ($stmt->rowCount() == 0) {
+            $stmt = Conexion::conectar()->prepare("ALTER TABLE emisor ADD clavePrivada VARCHAR(120) NULL AFTER clavePublica");
+            $stmt->execute();
+            array_push($success,  'Se agrego el campo clavePrivada a la tabla emisor');
         };
         $stmt = Conexion::conectar()->prepare("SHOW COLUMNS FROM guia WHERE Field = 'tipovehiculo'");
         $stmt->execute();

@@ -330,6 +330,18 @@ function loadTipoSeguridadEmail() {
   }
 }
 loadTipoSeguridadEmail();
+// CARGAR SEGURIDAD RECAPTCHA=====================
+function loadRecaptcha() {
+  let seguridad = $(".rseguridad").attr("idSeguridad");
+  if (seguridad == "s") {
+    $(".rseguridad").val("s");
+  }
+  if (seguridad == "n") {
+    $(".rseguridad").val("n");
+  }
+
+}
+loadRecaptcha();
 
 // ELIMINAR LOGO ===============
 $(".eliminar-logo").on("click", function (e) {

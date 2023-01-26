@@ -354,7 +354,7 @@ use Controladores\ControladorGuiaRemision;
 
                             <div class="input-group-c-apellidos">
                               <label for="" class="apellidosRazon">Num. Brevete <span style="color:red; border-style: none !important; font-size:20px;">*</span></label>
-                              <input type="text" class="form-control" id="numBrevete" name="numBrevete" placeholder="en M1 obligatorio">
+                              <input type="text" class="form-control" id="numBrevete" name="numBrevete" placeholder="Num. brevete">
                             </div>
 
                           </div>
