@@ -883,9 +883,7 @@ class ApiFacturacion
 
 			$response = curl_exec($ch);
 			$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-			curl_close($ch);
-
-			var_dump($response);
+			echo $response;
 		} catch (\Exception $e) {
 			echo "SUNAT ESTA FUERA SERVICIO: " . $e->getMessage();
 		}

@@ -337,5 +337,4 @@ class ModeloEmpresa
         $stmt = Conexion::conectar()->prepare("UPDATE emisor SET conexion='n'");
         $stmt->execute();
     }
-   
 }

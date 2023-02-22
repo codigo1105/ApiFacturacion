@@ -11,7 +11,9 @@ if ($emisor['conexion'] == 's' && strlen($emisor['clavePublica']) < 15 || strlen
 }
 ?>
 <div class="log-cont">
+
   <div class="login-box">
+
     <!-- <div class="login-logo">
    <img src="vistas/img/plantilla/logo-blanco-bloque.png" class="img-responsive" alt="" style="padding: 30px 100px 0px 100px">
   </div> -->
@@ -81,3 +83,23 @@ if ($emisor['conexion'] == 's' && strlen($emisor['clavePublica']) < 15 || strlen
 <?php if ($emisor['conexion'] == 's') { ?>
   <script src="https://www.google.com/recaptcha/api.js?render=<?php echo $emisor['clavePublica']; ?>"></script>
 <?php } ?>
+<script>
+  document.oncontextmenu = function() {
+    return false
+  }
+
+  Swal.fire({
+    title: '',
+    width: 700,
+    text: '',
+    icon: '',
+    html: ' <video id="video" src="vistas/videos/informacion.mp4" autoplay controls width="100%" height="50%"></video>',
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+
+  })
+  var video = document.getElementById('video');
+  video.addEventListener('click', function() {
+    video.play();
+  }, false);
+</script>
